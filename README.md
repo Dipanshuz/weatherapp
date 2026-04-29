@@ -10,4 +10,4 @@ V.1 : The Basic Weather
   - Conditions
   - Wind
 
-![Screenshot][data/ss.png]
+![Screenshot][data/IMG_9180.jpeg]
