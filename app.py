@@ -3,21 +3,18 @@ import pandas as pd
 import requests
 
 # --- CONFIG ---
-API_KEY = "32882a8e5c93523066ececf9474b4be1"
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
-
-
-df = pd.read_csv("data/demographics.csv")
-city = st.selectbox("Select an Indian City :", df['city'], placeholder='Cities', index=None)
+API_KEY = ""
+BASE_URL = ""
 
 # --- FUNCTION TO FETCH WEATHER ---
 def get_weather(city):
     params = {
         "q": city,
         "appid": API_KEY,
-        "units": "metric"
+        "log": df[df['city'] == city]['lng'],
+        "lat": df[df['city'] == city]['lat']
     }
-    response = requests.get(BASE_URL, params=params)
+    response = requests.get(f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={log}&exclude={part}&appid={8f5bf33f00eeb712ed2b6687ee18eee3}')
     return response.json()
 
 # --- UI ---
@@ -25,7 +22,8 @@ st.set_page_config(page_title="Weather App", layout="centered")
 
 st.title("🌤️ Weather App")
 
-city = st.text_input("Enter city name")
+df = pd.read_csv("data/demographics.csv")
+city = st.selectbox("Select an Indian City :", df['city'], placeholder='Cities', index=None)
 
 if st.button("Get Weather"):
     if city:
