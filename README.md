@@ -1,2 +1,3 @@
-# weatherapp
-A streamlit frontend weatherapp using an API
+# Weatherapp
+## Description
+A streamlit frontend weather app using python requests.
