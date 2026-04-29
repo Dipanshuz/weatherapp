@@ -7,8 +7,8 @@ API_KEY = "32882a8e5c93523066ececf9474b4be1"
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
-df = pd.read_csv("data/demographic.csv")
-city = st.selectbox("Select an Indian City :", df['city'], placeholder='Cities')
+df = pd.read_csv("data/demographics.csv")
+city = st.selectbox("Select an Indian City :", df['city'], placeholder='Cities', index=None)
 
 # --- FUNCTION TO FETCH WEATHER ---
 def get_weather(city):
