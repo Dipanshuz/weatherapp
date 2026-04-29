@@ -8,13 +8,7 @@ BASE_URL = ""
 
 # --- FUNCTION TO FETCH WEATHER ---
 def get_weather(city):
-    params = {
-        "q": city,
-        "appid": API_KEY,
-        "log": df[df['city'] == city]['lng'],
-        "lat": df[df['city'] == city]['lat']
-    }
-    response = requests.get(f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={log}&exclude={part}&appid={8f5bf33f00eeb712ed2b6687ee18eee3}')
+    response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=8f5bf33f00eeb712ed2b6687ee18eee3&units=metric')
     return response.json()
 
 # --- UI ---
